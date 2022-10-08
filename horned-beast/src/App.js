@@ -7,6 +7,7 @@ import Footer from './Footer.js';
 import Main from './Main.js';
 import data from './data.json.url';
 import SelectedBeast from './SelectedBeast';
+import BeastForm from './BeastForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -42,6 +43,5 @@ class App extends React.Component {
     );
   }
 }
-
 
 export default App;
