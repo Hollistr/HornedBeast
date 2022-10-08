@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
@@ -11,13 +10,13 @@ class HornedBeast extends React.Component {
 
     // Click handeler for votes
     handleClick = () => {
-        this.setState({ rating: this.state.rating + 'heart.jpg'});
+        this.setState({ rating: this.state.rating + '❤️' });
     };
 
     handleImageClick = () => {
         this.props.setShowModal(this.props.id);
-    }
-}
+    };
+
 
 render() {
     return (
@@ -41,8 +40,11 @@ render() {
         </div>
         </Card>
         </div>
-    )
-}
+    );
+    }
+  }
+
+  export default HornedBeast;
 
 //     render() {
 //         return(
@@ -62,5 +64,3 @@ render() {
 //         )
 //     }
 // }
-
-export default HornedBeast;
