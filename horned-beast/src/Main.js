@@ -10,8 +10,9 @@ class Main extends React.Component {
             <>
             <p className='instructions'>Click to vote on favorite beast</p>
             <p className='instructions'>Click beast for larger image</p>
-            <div>
+            <div className='d-flex flexwrap justify-content-center'>
                 {this.props.data.map(beast => {
+                    return (
                     <HornedBeast
                         title={beast.title}
                         imgUrl={beast.image_url}
@@ -21,6 +22,7 @@ class Main extends React.Component {
                         rating=""
                         setShowModal={this.props.setShowModal}
                     />
+                    );
                 })};
             </div>
             </>
