@@ -5,9 +5,9 @@ import './Main.css';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Main from './Main.js';
-import data from './data.json.url';
-import SelectedBeast from './SelectedBeast';
-import BeastForm from './BeastForm';
+import data from './assets/data.json';
+import SelectedBeast from './SelectedBeast.js';
+// import BeastForm from './BeastForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -35,10 +35,10 @@ class App extends React.Component {
         <Header />
         <Main data={data} setShowModel={this.setShowModel}/>
         <Footer />
-        <
+        <SelectedBeast
           showModel={this.state.showModel}
           setShowModel={this.setShowModel}
-          selectedAnimal={this.state.selectedBeast}
+          selectedBeast={this.state.selectedBeast}/>
       </>
     );
   }
