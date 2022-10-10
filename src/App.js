@@ -15,6 +15,7 @@ class App extends React.Component {
     this.state = {
       showModel: false,
       selectedBeast: {},
+      animalsToDisplay: data,
     };
   }
 
@@ -23,7 +24,7 @@ class App extends React.Component {
     if (id !== false) {
       let filteredBeast = data.filter(v => v._id === id);
       this.setState({selectedBeast: filteredBeast[0]});
-      this.state({showModel: true});
+      this.setstate({showModel: true});
     } else {
       this.setState({showModel: false});
     }

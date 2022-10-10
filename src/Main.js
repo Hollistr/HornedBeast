@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import HornedBeast from './HornedBeast.js';
 // import onehorned from './one-horned.jpg';
 // import twohorned from './two-horned.jpg';
