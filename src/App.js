@@ -7,7 +7,7 @@ import Footer from './Footer.js';
 import Main from './Main.js';
 import data from './assets/data.json';
 import SelectedBeast from './SelectedBeast.js';
-// import BeastForm from './BeastForm';
+import BeastForm from './BeastForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class App extends React.Component {
     this.state = {
       showModel: false,
       selectedBeast: {},
-      animalsToDisplay: data,
+      beastsToDisplay: data,
     };
   }
 
@@ -30,16 +30,47 @@ class App extends React.Component {
     }
   };
 
+  filterBeasts = (searchCriteria, searchType) => {
+    if (searchType === 'horns') {
+      if (searchCriteria === 0) {
+        this.setState({
+          beastsToDisplay: data.filter(v => v.horns === searchCriteria),
+        });
+      }
+    } else if (searchType === 'discription') {
+      if (searchCriteria === '') {
+        this.setState({
+          beastsToDisplay: data,
+        });
+      } else {
+        this.setState({
+          beastsToDisplay: data.filter(v =>
+            v.discription.toLowerCase().include(searchCriteria.toLowerCase())
+          ),
+        });
+      }
+    } else {
+      alert('ERROR')
+    }
+  };
+
   render() {
     return(
       <>
         <Header />
-        <Main data={data} setShowModel={this.setShowModel}/>
+        <main>
+          <BeastForm filterBeasts={this.filterBeasts} />
+          <Main 
+            beastsToDisplay={this.state.beastsToDisplay}
+            setShowModal={this.setShowModel}
+          />
+        </main>
         <Footer />
         <SelectedBeast
           showModel={this.state.showModel}
           setShowModel={this.setShowModel}
-          selectedBeast={this.state.selectedBeast}/>
+          selectedBeast={this.state.selectedBeast}
+          />
       </>
     );
   }
