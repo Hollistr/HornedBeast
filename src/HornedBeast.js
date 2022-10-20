@@ -15,7 +15,7 @@ class HornedBeast extends React.Component {
     };
 
     handleImageClick = () => {
-        this.props.setShowModal(this.props.id);
+        this.props.setShowModal(this.props.title);
     };
 
 
@@ -23,11 +23,13 @@ render() {
     return (
         <div className="bg-light border m-4 card">
         <Card border="secondary" style={{ width: '15rem', height: '22rem' }}>
-          <div className="text-center m-2" onClick={this.handleImageClick}>
+          <div className="text-center m-2" >
             <Card.Img
               variant="top"
-              src={this.props.imageUrl}
+              src={this.props.image_url}
               className="w-50"
+              // onClick={this.handleImageClick}
+              onClick={() => this.props.selectTheBeast(this.props.title)}
             />
           </div>
           <div onClick={this.handleClick}>

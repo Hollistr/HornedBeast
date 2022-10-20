@@ -30,6 +30,12 @@ class App extends React.Component {
     }
   };
 
+  selectTheBeast = (beastTitle) => {
+    let aBeast = this.state.beastsToDisplay.find(item => item.title === beastTitle);
+    this.setState({selectedBeast: aBeast});
+    this.setShowModal();
+  }
+
   filterBeasts = (searchCriteria, searchType) => {
     if (searchType === 'horns') {
       if (searchCriteria === 0) {
@@ -62,6 +68,7 @@ class App extends React.Component {
           <BeastForm filterBeasts={this.filterBeasts} />
           <Main 
             beastsToDisplay={this.state.beastsToDisplay}
+            selectTheBeast={this.selectTheBeast}
             setShowModal={this.setShowModel}
           />
         </main>
